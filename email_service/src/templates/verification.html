@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Verify Your Email - {{ service_name }}{% endblock %}
+
+{% block header %}
+<!-- {% if logo_data %}
+<div class="logo">{{ logo_data|safe }}</div>
+{% endif %} -->
+<h2 style="font-size: 2.5em; color: #f4dbd6; margin-bottom: 15px;">Verify Your Email</h2>
+<div style="color: #8aadf4; font-size: 1.2em;">One step away from getting started</div>
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <p style="font-size: 1.2em; margin-bottom: 25px; color: #cad3f5;">Please verify your email address to complete your registration with {{ service_name }}.</p>
+    
+    <!-- Email-safe button -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+        <tr>
+            <td align="center" style="border-radius: 6px; background-color: #8aadf4;">
+                <a href="{{ verification_url }}" style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    color: #24273a;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border-radius: 6px;">
+                    Verify Email
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <p style="margin-top: 30px; color: #b8c0e0;">
+        This verification link will expire in <strong style="color: #eed49f;">{{ expiry_hours }} hours</strong> 
+        <span style="display: block; margin-top: 5px; font-size: 0.9em;">
+            For security reasons, please complete the verification soon.
+        </span>
+    </p>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #494d64;">
+        <p style="font-size: 0.9em; color: #a5adcb; font-style: italic;">
+            If you didn't sign up for {{ service_name }}, you can safely ignore this email.
+        </p>
+    </div>
+</div>
+{% endblock %}

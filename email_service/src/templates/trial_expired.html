@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Your Trial Has Expired{% endblock %}
+
+{% block header %}
+<!-- {% if logo_data %}
+<div class="logo">{{ logo_data|safe }}</div>
+{% endif %} -->
+<h2 style="font-size: 2.5em; color: #f4dbd6; margin-bottom: 15px;">Your Trial Has Ended</h2>
+<div style="color: #8aadf4; font-size: 1.2em;">Continue your experience with a subscription</div>
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <p style="font-size: 1.2em; margin-bottom: 25px; color: #cad3f5;">
+        Your trial period has concluded. We hope you found value in our service during this time.
+    </p>
+    
+    <!-- Character Showcase Box -->
+    {% if user_data.characters %}
+    <div style="background: rgba(54, 58, 79, 0.5); padding: 25px; border-radius: 6px; margin: 25px auto; max-width: 500px; text-align: left;">
+        <h3 style="color: #a6da95; margin-bottom: 15px; text-align: center;">Your Created Content</h3>
+        <div style="color: #cad3f5; text-align: center; margin-bottom: 20px;">
+            You've created {{ user_data.total_characters }} items during your trial:
+        </div>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            {% for character in user_data.characters[:3] %}
+            <li style="padding: 12px 0;" {% if not loop.last %}class="with-border"{% endif %}>
+                <span style="color: #c6a0f6;">•</span>
+                <strong style="color: #cad3f5;">{{ character.name }}</strong>
+                <div style="color: #b8c0e0; margin-left: 25px; font-style: italic;">
+                    "{{ character.personality[:100] }}..."
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+    <!-- Continue the Magic Box -->
+    <div style="background: rgba(54, 58, 79, 0.5); padding: 25px; border-radius: 6px; margin: 25px auto; max-width: 500px;">
+        <h3 style="color: #a6da95; margin-bottom: 15px;">Subscribe to Continue</h3>
+        <p style="color: #cad3f5; margin-bottom: 20px;">
+            With our Basic plan, you can:
+        </p>
+        <ul style="list-style-type: none; padding: 0; margin: 0; text-align: left;">
+            <li style="padding: 8px 0;">
+                <span style="color: #c6a0f6;">•</span>
+                <span style="color: #cad3f5;">Create unlimited content</span>
+            </li>
+            <li style="padding: 8px 0;">
+                <span style="color: #c6a0f6;">•</span>
+                <span style="color: #cad3f5;">Access core platform features</span>
+            </li>
+            <li style="padding: 8px 0;">
+                <span style="color: #c6a0f6;">•</span>
+                <span style="color: #cad3f5;">Retain your existing content</span>
+            </li>
+            <li style="padding: 8px 0;">
+                <span style="color: #c6a0f6;">•</span>
+                <span style="color: #cad3f5;">Upgrade anytime for premium features</span>
+            </li>
+        </ul>
+    </div>
+
+    <p style="color: #b8c0e0; margin: 30px 0;">
+        Don't lose access to your content. Subscribe today to continue using all features.
+    </p>
+
+    <!-- Email-safe button -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+        <tr>
+            <td align="center" style="border-radius: 6px; background-color: #8aadf4;">
+                <a href="{{ site_url }}/pricing" style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    color: #24273a;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border-radius: 6px;">
+                    View Subscription Options
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #494d64;">
+        <p style="font-size: 0.9em; color: #a5adcb;">
+            Questions about our plans? Our support team is ready to help.
+            <br>
+            We look forward to seeing you again.
+        </p>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to {{ service_name }}!{% endblock %}
+
+{% block header %}
+<!-- {% if logo_data %}
+<div class="logo">{{ logo_data|safe }}</div>
+{% endif %} -->
+<h2 style="font-size: 2.5em; color: #f4dbd6; margin-bottom: 15px;">Welcome to {{ service_name }}</h2>
+<div style="color: #8aadf4; font-size: 1.2em;">Your journey begins today</div>
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <p style="font-size: 1.2em; margin-bottom: 25px; color: #cad3f5;">
+        Thank you for joining {{ service_name }}. We're excited to have you on board and look forward to helping you get the most out of our services.
+    </p>
+    
+    <!-- Welcome Box -->
+    <div style="background: rgba(54, 58, 79, 0.5); padding: 25px; border-radius: 6px; margin: 25px auto; max-width: 500px; text-align: left;">
+        <h3 style="color: #a6da95; margin-bottom: 15px; text-align: center;">Your Premium Features:</h3>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(91, 96, 120, 0.5);">
+                <span style="color: #c6a0f6;">•</span> 
+                <strong style="color: #cad3f5;">Premium Trial Access</strong>
+                <div style="color: #b8c0e0; margin-left: 25px;">
+                    Access to all premium features of {{ service_name }} for the next 36 hours
+                </div>
+            </li>
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(91, 96, 120, 0.5);">
+                <span style="color: #c6a0f6;">•</span>
+                <strong style="color: #cad3f5;">Full Resource Access</strong>
+                <div style="color: #b8c0e0; margin-left: 25px;">
+                    Create and manage unlimited resources
+                </div>
+            </li>
+            <li style="padding: 12px 0; border-bottom: 1px solid rgba(91, 96, 120, 0.5);">
+                <span style="color: #c6a0f6;">•</span>
+                <strong style="color: #cad3f5;">Priority Support</strong>
+                <div style="color: #b8c0e0; margin-left: 25px;">
+                    Fast response times for all your support needs
+                </div>
+            </li>
+            <li style="padding: 12px 0;">
+                <span style="color: #c6a0f6;">•</span>
+                <strong style="color: #cad3f5;">Advanced Capabilities</strong>
+                <div style="color: #b8c0e0; margin-left: 25px;">
+                    Access to all our premium features and tools
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <p style="color: #b8c0e0; margin: 30px 0;">
+        Ready to get started? Visit your dashboard to begin.
+    </p>
+
+    <!-- Email-safe button -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+        <tr>
+            <td align="center" style="border-radius: 6px; background-color: #8aadf4;">
+                <a href="{{ service_url }}" style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    color: #24273a;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border-radius: 6px;">
+                    Go to Dashboard
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #494d64;">
+        <p style="font-size: 0.9em; color: #a5adcb;">
+            Need help getting started? Check out our 
+            <a href="{{ site_url }}/guides" style="color: #7dc4e4; text-decoration: none;">user guides</a>
+            or reach out to our support team.
+        </p>
+        <p style="font-size: 0.9em; color: #a5adcb; margin-top: 10px;">
+            Thank you for choosing {{ service_name }}.
+        </p>
+    </div>
+</div>
+{% endblock %} 

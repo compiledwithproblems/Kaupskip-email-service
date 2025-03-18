@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Your {{ service_name }} Receipt{% endblock %}
+
+{% block header %}
+<!-- {% if logo_data %}
+<div class="logo">{{ logo_data|safe }}</div>
+{% endif %} -->
+<h2 style="font-size: 2.5em; color: #f4dbd6; margin-bottom: 15px;">Thank You for Your Purchase</h2>
+<div style="color: #8aadf4; font-size: 1.2em;">Here's your receipt</div>
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <p style="font-size: 1.2em; margin-bottom: 25px; color: #cad3f5;">
+        Your payment was successful. Please save this receipt for your records.
+    </p>
+    
+    <!-- Receipt Details Box -->
+    <div style="background: rgba(54, 58, 79, 0.5); padding: 25px; border-radius: 6px; margin: 25px auto; max-width: 500px; text-align: left;">
+        <table style="width: 100%; color: #cad3f5;">
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Plan</td>
+                <td style="padding: 8px 0; text-align: right; font-weight: bold;">{{ subscription_data.tier }} Plan</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Amount</td>
+                <td style="padding: 8px 0; text-align: right; font-weight: bold;">${{ subscription_data.price }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Billing Period</td>
+                <td style="padding: 8px 0; text-align: right;">Until {{ subscription_data.current_period_end|date }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Status</td>
+                <td style="padding: 8px 0; text-align: right; color: #a6da95;">{{ subscription_data.status|title }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Account Email</td>
+                <td style="padding: 8px 0; text-align: right;">{{ email }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <p style="color: #b8c0e0; margin: 30px 0;">
+        Your subscription is now active. Access all premium features on our platform.
+    </p>
+
+    <!-- Email-safe button -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+        <tr>
+            <td align="center" style="border-radius: 6px; background-color: #8aadf4;">
+                <a href="{{ service_url }}" style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    color: #24273a;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border-radius: 6px;">
+                    Go to Dashboard
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #494d64;">
+        <p style="font-size: 0.9em; color: #a5adcb;">
+            Keep this receipt for your records. Questions about your bill?
+            <br>
+            Contact our support team for assistance.
+        </p>
+    </div>
+</div>
+{% endblock %} 

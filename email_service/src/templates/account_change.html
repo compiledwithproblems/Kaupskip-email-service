@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Your {{ service_name }} Account Update{% endblock %}
+
+{% block header %}
+<!-- {% if logo_data %}
+<div class="logo">{{ logo_data|safe }}</div>
+{% endif %} -->
+<h2 style="font-size: 2.5em; color: #f4dbd6; margin-bottom: 15px;">Account Update</h2>
+<div style="color: #8aadf4; font-size: 1.2em;">Changes to your subscription</div>
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <p style="font-size: 1.2em; margin-bottom: 25px; color: #cad3f5;">
+        We've processed the following changes to your {{ service_name }} account.
+    </p>
+    
+    <!-- Account Changes Box -->
+    <div style="background: rgba(54, 58, 79, 0.5); padding: 25px; border-radius: 6px; margin: 25px auto; max-width: 500px; text-align: left;">
+        {% if subscription_data %}
+        <table style="width: 100%; color: #cad3f5;">
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Previous Plan</td>
+                <td style="padding: 8px 0; text-align: right; font-weight: bold;">{{ subscription_data.previous_tier }} Plan</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">New Plan</td>
+                <td style="padding: 8px 0; text-align: right; font-weight: bold;">{{ subscription_data.new_tier }} Plan</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Change Takes Effect</td>
+                <td style="padding: 8px 0; text-align: right;">{{ subscription_data.end_date|date }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; color: #b8c0e0;">Status</td>
+                <td style="padding: 8px 0; text-align: right; color: #a6da95;">{{ subscription_data.status|title }}</td>
+            </tr>
+        </table>
+        {% endif %}
+    </div>
+    
+    <p style="color: #b8c0e0; margin: 30px 0;">
+        Your account has been updated with these changes. They will take effect on the date shown above.
+    </p>
+
+    <!-- Email-safe button -->
+    <table border="0" cellspacing="0" cellpadding="0" style="margin: 20px auto;">
+        <tr>
+            <td align="center" style="border-radius: 6px; background-color: #8aadf4;">
+                <a href="{{ service_url }}" style="
+                    display: inline-block;
+                    padding: 12px 24px;
+                    color: #24273a;
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                    border-radius: 6px;">
+                    View Account
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #494d64;">
+        <p style="font-size: 0.9em; color: #a5adcb;">
+            Questions about your account changes?
+            <br>
+            Contact our support team for assistance.
+        </p>
+    </div>
+</div>
+{% endblock %} 

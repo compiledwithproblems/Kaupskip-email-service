@@ -1,0 +1,38 @@
+# Kaupskip/docker-compose.yml
+version: '3.8'
+
+services:
+  kaupskip:
+    build:
+      context: ./email_service
+      dockerfile: Dockerfile
+    container_name: kaupskip-email-service
+    ports:
+      - "8001:8001"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SECRET_KEY=${SECRET_KEY}
+      - MAIN_APP_SECRET=${MAIN_APP_SECRET}
+      - SERVICE_NAME=${SERVICE_NAME}
+      - VERSION=${VERSION}
+      - VERIFICATION_EXPIRY_HOURS=${VERIFICATION_EXPIRY_HOURS}
+      - MAIN_APP_URL=${MAIN_APP_URL}
+    volumes:
+      - ./email_service/src:/app/src
+      - ./email_service/.env:/app/.env
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://0.0.0.0:8001/health"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  app_network:
+    external: true 
