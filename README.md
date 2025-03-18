@@ -1,7 +1,7 @@
 # Kaupskip Email Service
 
 <p align="center">
-  <img src="src/assets/kaupskip-logo.png" alt="Kaupskip Logo" width="200"/>
+  <img src="images/kaupskip-logo.png" alt="Kaupskip Logo" width="200"/>
 </p>
 
 ## Introduction
